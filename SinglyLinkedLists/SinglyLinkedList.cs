@@ -88,5 +88,9 @@ namespace SinglyLinkedLists
         {
             throw new NotImplementedException();
         }
+        public override string ToString()
+        {
+            return "";
+        }
     }
 }

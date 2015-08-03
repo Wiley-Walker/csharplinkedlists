@@ -61,6 +61,7 @@
     <None Include="AdvancedLinkedListImplementation.orderedtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SinglyLinkedLists\SinglyLinkedLists.csproj">
