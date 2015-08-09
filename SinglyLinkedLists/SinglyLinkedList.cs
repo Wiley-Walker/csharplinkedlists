@@ -132,9 +132,20 @@ namespace SinglyLinkedLists
         // HINT 3: If you highlight code and right click, you can use the refactor menu to extract a method for you...
         public string Last()
         {
-            throw new NotImplementedException();
+            var node = this.first_node;
+            if (node == null)
+            {
+                return null;
+            }
+            else
+            {
+                while (!node.IsLast())
+                {
+                    node = node.Next;
+                }
+                return node.Value;
+            }
         }
-
         public void Remove(string value)
         {
             throw new NotImplementedException();
@@ -151,7 +162,27 @@ namespace SinglyLinkedLists
         }
         public override string ToString()
         {
-            return "";
+            var opening = "{";
+            var ending = "}";
+            var space = " ";
+            var output = "";
+            var quote = "\"";
+            var comma = "," + space;
+            output += opening;
+            var node = this.first_node;
+            if (this.Count() >= 1)
+            {
+                output += space;
+                while (!node.IsLast())
+                {
+                    output += quote + node.Value + quote + comma;
+                    node = node.Next;
+                }
+                output += quote + this.Last() + quote;
+            }
+            output += space;
+            output += ending;
+            return output;
         }
     }
 }
