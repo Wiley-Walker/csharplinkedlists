@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,32 +9,98 @@ namespace SinglyLinkedLists
     public class SinglyLinkedList
     {
         private SinglyLinkedListNode first_node;
-        public SinglyLinkedList()
-        {
+        private int listLength = 0;
+        // public SinglyLinkedList(string expected, )
+        //{
             // NOTE: This constructor isn't necessary, once you've implemented the constructor below.
-        }
+        //}
 
         // READ: http://msdn.microsoft.com/en-us/library/aa691335(v=vs.71).aspx
         public SinglyLinkedList(params object[] values)
         {
-            throw new NotImplementedException();
+
+            for (int i = 0; i < values.Count(); i++)
+            {
+                this.AddLast(values[i] as String);
+            }
         }
 
+
         // READ: http://msdn.microsoft.com/en-us/library/6x16t2tx.aspx
+
         public string this[int i]
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            get { return this.ElementAt(i); }
+            set {
+                var thisNode = new SinglyLinkedList();
+                for (var x = 0; x < this.Count(); x++)
+                {
+                    if (x == 1)
+                    {
+                        thisNode.AddLast(value);
+                    }
+                    else
+                    {
+                        thisNode.AddLast(this.ElementAt(x));
+                    }
+                }
+                first_node = new SinglyLinkedListNode(thisNode.First());
+                for (var w = 1; w < thisNode.Count(); w++)
+                {
+                    this.AddLast(thisNode.ElementAt(w));
+                }
+            }
         }
 
         public void AddAfter(string existingValue, string value)
         {
-            throw new NotImplementedException();
+            var NodeOne = first_node;
+            bool NotTheEnd = false;
+            while (!(NodeOne.IsLast()))
+            {
+                if (NodeOne.Value == existingValue)
+                {
+                    NotTheEnd = true;
+                    break;
+                }
+                else
+                {
+                    NodeOne = NodeOne.Next;
+                }
+            }
+            if (NodeOne.IsLast() && NodeOne.Value == existingValue)
+            {
+                this.AddLast(value);
+                return;
+            }
+
+            if (!NotTheEnd) { throw new ArgumentException(); }
+
+            if (NotTheEnd)
+            {
+                var newNode = new SinglyLinkedListNode(value);
+                newNode.Next = NodeOne.Next;
+                NodeOne.Next = newNode;
+                listLength += 1;
+
+            }
+
         }
 
         public void AddFirst(string value)
         {
-            throw new NotImplementedException();
+            if (this.First() == null)
+            {
+                first_node = new SinglyLinkedListNode(value);
+            }
+            else
+            {
+                var newFirstNode = new SinglyLinkedListNode(value);
+                newFirstNode.Next = this.first_node;
+                this.first_node = newFirstNode;
+            }
+
+            listLength += 1;
         }
 
         public void AddLast(string value)

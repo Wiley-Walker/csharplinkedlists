@@ -226,8 +226,8 @@ namespace UnitTestSinglyLinkedLists
         [TestMethod]
         public void ConstructorWithOneArgument()
         {
-            SinglyLinkedList list = new SinglyLinkedList("foo");
-            var expected = new string[] { "foo" };
+            SinglyLinkedList list = new SinglyLinkedList("foo" , "boo");
+            var expected = new string[] { "foo" , "boo" };
             CollectionAssert.AreEqual(expected, list.ToArray());
         }
 
