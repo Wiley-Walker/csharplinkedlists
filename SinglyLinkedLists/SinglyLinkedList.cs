@@ -35,7 +35,7 @@ namespace SinglyLinkedLists
                 var thisNode = new SinglyLinkedList();
                 for (var x = 0; x < this.Count(); x++)
                 {
-                    if (x == 1)
+                    if (x == 2)
                     {
                         thisNode.AddLast(value);
                     }
