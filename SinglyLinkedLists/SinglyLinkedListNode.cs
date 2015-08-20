@@ -17,7 +17,7 @@ namespace SinglyLinkedLists
         {
             get { return next; }
             set {
-                    if (value.Equals(this))
+                    if (Object.ReferenceEquals(value, this))
                 {
                     throw new ArgumentException();
                 }

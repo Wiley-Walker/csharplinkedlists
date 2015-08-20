@@ -186,7 +186,17 @@ namespace SinglyLinkedLists
 
         public int IndexOf(string value)
         {
-            throw new NotImplementedException();
+            var currentNode = this.first_node; 
+            for (int i = 0; i < this.Count(); i++)
+            {
+                if (currentNode.Value == value)
+                {
+                    return i;
+                }
+                currentNode = currentNode.Next;
+                    
+            }
+            return -1;
         }
 
         public bool IsSorted()
@@ -215,8 +225,38 @@ namespace SinglyLinkedLists
         }
         public void Remove(string value)
         {
-            throw new NotImplementedException();
+            var currentNode = this.first_node;
+            var previousNode = this.first_node;
+            int index = 0;
+            bool found = false;
+            for (int i = 0; i < this.Count(); i++)
+                            {
+                                 if (currentNode.Value == value)
+                                    {
+                                         index = i;
+                                     found = true;
+                                      break;
+                                    }
+                                  if (i > 0)
+                                     {
+                                          previousNode = currentNode;
+                                       }
+                                 currentNode = currentNode.Next;
+                              }
+                        if (!found) { return; }
+                         if (index == 0)
+                            {
+                                 first_node = first_node.Next;
+                                 listLength -= 1;
+                                 return;
+
+                 
+            }
         }
+                 
+
+            
+        
 
         public void Sort()
         {
