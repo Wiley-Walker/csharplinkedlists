@@ -201,19 +201,7 @@ namespace SinglyLinkedLists
 
         public bool IsSorted()
         {
-            bool is_sorted = true;
-            var thisNode = this.first_node;
-            for (int i = 0; i < listLength - 1; i++)
-              {
-                if (thisNode.CompareTo(thisNode.Next) > 0)
-                   {
-                   is_sorted = false;
-                    break;
-                    }
-               thisNode = thisNode.Next;
-                    }
-            return is_sorted;
-
+            throw new NotImplementedException();
         }
 
         // HINT 1: You can extract this functionality (finding the last item in the list) from a method you've already written!
@@ -264,36 +252,16 @@ namespace SinglyLinkedLists
 
                  
             }
-            previousNode.Next = currentNode.Next;
-            listLength -= 1;
-
         }
+                 
 
-
-
-
+            
+        
 
         public void Sort()
         {
-            while (!this.IsSorted())
-            {
-            var node1 = this.first_node;
-            var node2 = node1.Next;
-            for (int i = 1; i < this.listLength; i++)
-            {
-            if (node1.CompareTo(node2) > 0)
-                {
-                    var temp = node2.Value;
-                        var temp2 = node1.Value;
-                    temp = node1.Value;
-                    temp2 = temp;
-            }
-            node1 = node1.Next;
-            node2 = node2.Next;
+            throw new NotImplementedException();
         }
-}
-
-}
 
         public string[] ToArray()
         {
